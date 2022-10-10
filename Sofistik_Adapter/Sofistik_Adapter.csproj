@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <AssemblyName>SoftwareName_Adapter</AssemblyName>
-    <RootNamespace>BH.Adapter.SoftwareName</RootNamespace>
+    <AssemblyName>Sofistik_Adapter</AssemblyName>
+    <RootNamespace>BH.Adapter.Sofistik</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -11,8 +11,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SoftwareName_Engine\SoftwareName_Engine.csproj" />
-    <ProjectReference Include="..\SoftwareName_oM\SoftwareName_oM.csproj" />
+    <ProjectReference Include="..\Sofistik_Engine\Sofistik_Engine.csproj" />
+    <ProjectReference Include="..\Sofistik_oM\Sofistik_oM.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -25,6 +25,9 @@
       <HintPath>C:\ProgramData\BHoM\Assemblies\Adapter_oM.dll</HintPath>
       <Private>false</Private>
       <SpecificVersion>false</SpecificVersion>
+    </Reference>
+    <Reference Include="Analytical_oM">
+      <HintPath>C:\ProgramData\BHoM\Assemblies\Analytical_oM.dll</HintPath>
     </Reference>
     <Reference Include="BHoM">
       <HintPath>C:\ProgramData\BHoM\Assemblies\BHoM.dll</HintPath>
@@ -41,6 +44,13 @@
       <Private>false</Private>
       <SpecificVersion>false</SpecificVersion>
     </Reference>
+    <Reference Include="Structure_oM">
+      <HintPath>C:\ProgramData\BHoM\Assemblies\Structure_oM.dll</HintPath>
+    </Reference>
   </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy &quot;$(TargetDir)$(TargetFileName)&quot;  &quot;C:\ProgramData\BHoM\Assemblies&quot; /Y" />
+  </Target>
 
 </Project>

@@ -1,4 +1,4 @@
-﻿/*
+/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2022, the respective contributors. All rights reserved.
  *
@@ -27,9 +27,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BH.Adapter.SoftwareName
+namespace BH.Adapter.Sofistik
 {
-    public partial class SoftwareNameAdapter : BHoMAdapter
+    public partial class SofistikAdapter : BHoMAdapter
     {
         // Basic Delete method that deletes objects depending on their Type and Id. 
         // It gets called by the Push or by the Remove Adapter Actions.

@@ -1,4 +1,4 @@
-﻿/*
+/*
  * This file is part of the Buildings and Habitats object Model (BHoM)
  * Copyright (c) 2015 - 2022, the respective contributors. All rights reserved.
  *
@@ -23,38 +23,55 @@
 using BH.oM.Adapter;
 using BH.oM.Base;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BH.Adapter.SoftwareName
+namespace BH.Adapter.Sofistik
 {
-    public partial class SoftwareNameAdapter : BHoMAdapter
+    public partial class SofistikAdapter : BHoMAdapter
     {
-        /***************************************************/
-        /**** Adapter overload method                   ****/
-        /***************************************************/
+        // NOTE: CRUD folder methods
+        // All methods in the CRUD folder are used as "back-end" methods by the Adapter itself.
+        // They are automatically invoked by the Adapter Actions (Push, Pull, etc.).
+        // Specifically, the Create is primarily called by the Push (in the context of the CRUD method, and also by other methods that require it: Update, UpdateProperty).
+        // See the wiki for more information.
 
-        // This method gets called when appropriate by the Pull method contained in the base Adapter class.
-        // It gets called once per each Type.
-        protected override IEnumerable<IBHoMObject> IRead(Type type, IList ids, ActionConfig actionConfig = null)
+        // The Create should only contain the logic that generates the objects in the external software.
+        protected override bool ICreate<T>(IEnumerable<T> objects, ActionConfig actionConfig = null)
         {
+            bool success = true;
+
             // Preferrably, different Create logic for different object types should go in separate methods.
             // We achieve this by using the ICreate method to only dynamically dispatching to *type-specific Create implementations*
             // In other words:
-            // if (type == typeof(SomeType1))
-            //     return ReadSomeType1(ids as dynamic);
-            // else if (type == typeof(SomeType2))
-            //     return ReadSomeType2(ids as dynamic);
-            // else if (type == typeof(SomeType3))
-            //     return ReadSomeType3(ids as dynamic);
+            foreach (T obj in objects)
+            {
+                success &= Create(obj as dynamic);
+            }
 
-            return new List<IBHoMObject>();
+            // Then place the specific Create methods below this method or, better, in separate file for each object type.
+            return success;
         }
+
+        // Write your type-specific implementations of Create like:
+        // protected bool Create(IEnumerable<BH.oM.Structure.Elements.Node> node) //`Node` is just an example BHoM Type.
+        // { 
+        //      // Code to do the Create of `Node`s, including:
+        //      //  - calling `Convert` methods from the BHoM type to the external object model
+        //      //    (Convert methods should be defined in the specific `Convert` folder);
+        //      //  - any API call that do the actual export to the external software.
+        //    return true; // if successfull
+        // }
 
         /***************************************************/
 
+        // Fallback case. If no specific Create is found, here we should handle what happens then.
+        protected bool Create(IBHoMObject obj)
+        {
+            BH.Engine.Base.Compute.RecordError("No specific Create method found for {obj.GetType().Name}.");
+            return false;
+        }
     }
 }
