@@ -2,17 +2,15 @@
 BHoM-SOFiSTiK Toolkit is part of an ongoing collaboration between Rambøll and Buro Happold towards the open-source community. It has started the development as part of the digitalization project inside Rambøll called Common prOject Delivery plAtform (CODA).
 
 
-## Contact
+## Team
 
 Feel free to contact us for collaboration, development or doubts.
 
-sean.lecoultre@ramboll.fi
+### Rambøll
+Felipe Bandeira (fmm@ramboll.dk), Jukka Susivainio (jukka.susivainio@ramboll.fi), Sean LeCoultre (sean.lecoultre@ramboll.fi), Ville Leskinen (ville.leskinen@ramboll.fi), https://www.ramboll.com/
 
-ville.leskinen@ramboll.fi
-
-jukka.susivainio@ramboll.fi
-
-fmm@ramboll.dk
+### Buro Happold
+Alessio Lombardi, Dr. Al Fisher, Isak Naslund, Computational Development Buro Happold, London, England https://www.burohappold.com/
 
 
 ## Functionality
