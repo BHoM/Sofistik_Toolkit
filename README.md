@@ -15,20 +15,15 @@ Alessio Lombardi, Dr. Al Fisher, Isak Naslund, Computational Development Buro Ha
 
 ## Functionality
 
-This toolkit allows interoperability between the BHoM and SOFiSTiK. Enables creation, manipulation and reading of structural finite element analysis models as well as loading information and extraction of analysis results.
+This toolkit allows interoperability between the BHoM and SOFiSTiK. Currently it enables extraction of analysis results.
 
 https://www.sofistik.com/
 
 
 ## Known Versions of Software Supported
 
-SOFiSTiK 2018
-
-SOFiSTiK 2020
-
 SOFiSTiK 2022
 
-SOFiSTiK 2023
 
 
 ## Documentation
