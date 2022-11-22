@@ -1,5 +1,5 @@
 # BHoM-SOFiSTiK Toolkit
-BHoM-SOFiSTiK Toolkit is part of an ongoing collaboration between Rambøll and Buro Happold towards the open-source community. It has started the development as part of the digitalization project inside Rambøll called Common prOject Delivery plAtform (CODA).
+BHoM-SOFiSTiK Toolkit is part of an ongoing collaboration between Rambøll and Buro Happold towards the open-source community. It has been started as part of a digitalization development project inside Ramboll.
 
 
 ## Team
