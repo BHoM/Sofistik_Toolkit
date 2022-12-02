@@ -29,7 +29,11 @@ using System.Threading.Tasks;
 
 namespace BH.Adapter.Sofistik
 {
+#if DEBUG32BIT || RELEASE32BIT
+    public partial class Sofistik32BitAdapter : BHoMAdapter
+#else
     public partial class SofistikAdapter : BHoMAdapter
+#endif
     {
         // This method gets called when appropriate by the Push method contained in the base Adapter class.
         // Unlike the Create, Delete and Read, this method already exposes a simple implementation: it calls Delete and then Create.

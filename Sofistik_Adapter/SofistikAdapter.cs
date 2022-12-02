@@ -31,7 +31,11 @@ using System.Threading.Tasks;
 
 namespace BH.Adapter.Sofistik
 {
+#if DEBUG32BIT || RELEASE32BIT
+    public partial class Sofistik32BitAdapter : BHoMAdapter
+#else
     public partial class SofistikAdapter : BHoMAdapter
+#endif
     {
         /***************************************************/
         /**** Constructors                              ****/
@@ -39,12 +43,20 @@ namespace BH.Adapter.Sofistik
 
         [Description("Adapter for Sofistik.")]
         [Output("The created Sofistik adapter.")]
-        public SofistikAdapter()
+
+#if DEBUG32BIT || RELEASE32BIT
+        public Sofistik32BitAdapter(string filePath)
+#else
+        public SofistikAdapter(string filePath)
+#endif
         {
             // The Adapter constructor can be used to configure the Adapter behaviour.
             // For example:
+
             m_AdapterSettings.DefaultPushType = oM.Adapter.PushType.CreateOnly; // Adapter `Push` Action simply calls "Create" method.
-            
+
+            this.filePath = filePath;
+
             // See the wiki, the AdapterSettings object and other Adapters to see how it can be configured.
 
             // If your toolkit needs to define this.AdapterComparers and or this.DependencyTypes,
@@ -65,5 +77,6 @@ namespace BH.Adapter.Sofistik
         // See the wiki for more information.
 
         /***************************************************/
+        public string filePath;
     }
 }

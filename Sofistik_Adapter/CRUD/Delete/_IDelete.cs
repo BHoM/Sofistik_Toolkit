@@ -29,13 +29,17 @@ using System.Threading.Tasks;
 
 namespace BH.Adapter.Sofistik
 {
+#if DEBUG32BIT || RELEASE32BIT
+    public partial class Sofistik32BitAdapter : BHoMAdapter
+#else
     public partial class SofistikAdapter : BHoMAdapter
+#endif
     {
-        // Basic Delete method that deletes objects depending on their Type and Id. 
-        // It gets called by the Push or by the Remove Adapter Actions.
-        // Its implementation is facultative (not needed for a simple export/import scenario). 
-        // Toolkits need to implement (override) this only to get the full CRUD to work.
-        protected override int IDelete(Type type, IEnumerable<object> ids, ActionConfig actionConfig = null)
+    // Basic Delete method that deletes objects depending on their Type and Id. 
+    // It gets called by the Push or by the Remove Adapter Actions.
+    // Its implementation is facultative (not needed for a simple export/import scenario). 
+    // Toolkits need to implement (override) this only to get the full CRUD to work.
+    protected override int IDelete(Type type, IEnumerable<object> ids, ActionConfig actionConfig = null)
         {
             //Insert code here to enable deletion of specific types of objects with specific ids
             BH.Engine.Base.Compute.RecordError($"Delete for objects of type {type.Name} is not implemented in {(this as dynamic).GetType().Name}.");

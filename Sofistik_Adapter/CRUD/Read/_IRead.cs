@@ -31,7 +31,11 @@ using System.Threading.Tasks;
 
 namespace BH.Adapter.Sofistik
 {
+#if DEBUG32BIT || RELEASE32BIT
+    public partial class Sofistik32BitAdapter : BHoMAdapter
+#else
     public partial class SofistikAdapter : BHoMAdapter
+#endif
     {
         /***************************************************/
         /**** Adapter overload method                   ****/
