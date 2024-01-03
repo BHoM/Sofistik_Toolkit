@@ -43,7 +43,7 @@ Grab the [latest installer](https://bhom.xyz/) and a selection of [sample script
 
 If you want to build the BHoM and the Toolkits from source, it's hopefully easy! 😄 
 
-Do take a look at our specific wiki pages here: [Getting Started for Developers](https://bhom.xyz/documentation/Contributing/Getting-started-for-developers/)
+Do take a look at our specific wiki pages here: [Getting Started for Developers](https://bhom.xyz/documentation/Guides-and-Tutorials/Coding-with-BHoM/)
 
 The SOFiSTiK dll is installed with SOFiSTiK and is usually located in 'C:\Program Files\SOFiSTiK\20XX\SOFiSTiK 20XX\interfaces\64bit'
 
